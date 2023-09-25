@@ -5,14 +5,14 @@ function updateClock() {
     const secondHand = document.querySelector('.second-hand');
 
     const now = new Date();
-    const hours = now.getHours() % 12; // Convert to 12-hour format
+    const hours = now.getHours(); // Convert to 12-hour format
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
     // Calculate rotation angles for the clock hands
-    const hourRotation = (360 / 12) * (hours + minutes / 60);
-    const minRotation = (360 / 60) * minutes;
-    const secondRotation = (360 / 60) * seconds;
+    const hourRotation = 36*hours+minutes/2;
+    const minRotation = 6*minutes;
+    const secondRotation = 6*seconds;
 
     // Apply the rotation to the clock hands
     hourHand.style.transform = `rotate(${hourRotation}deg)`;
